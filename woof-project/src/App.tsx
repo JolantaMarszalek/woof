@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import NotFoundPage from "./pages/NotFoundPage";
 import DogListPage from "./pages/DogListPage";
 import { Layout } from "./components/Layout/Layout.component";
+import DogSearchPage from "./pages/DogSearchPage";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<DogListPage />} />
-          {/* <Route path="dog-search" element={<DogSearchPage />} /> */}
+          <Route path="dog-search" element={<DogSearchPage />} />
           <Route path="not-found" element={<NotFoundPage />} />
           <Route
             path="*"
