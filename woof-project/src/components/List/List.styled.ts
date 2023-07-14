@@ -21,4 +21,9 @@ export const ListDogContainer = styled.div`
   align-items: center;
   color: hsl(0, 0%, 55%);
   margin: 20px;
+  a {
+    text-decoration: none;
+    color: hsl(0, 0%, 55%);
+    text-transform: capitalize;
+  }
 `;
