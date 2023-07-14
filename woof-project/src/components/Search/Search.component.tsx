@@ -4,15 +4,15 @@ import {
   PhotoContainer,
   SearchBarContainer,
   SearchContainer,
+  SearchTitleContainer,
   TextContainer,
-  TitleContainer,
 } from "./Search.styled";
 
 function Search() {
   return (
     <>
       <SearchContainer>
-        <TitleContainer>Szukaj a znajdziesz ;)</TitleContainer>
+        <SearchTitleContainer>Szukaj a znajdziesz ;)</SearchTitleContainer>
         <SearchBarContainer>
           <Input placeholder="np. Owczarek niemiecki" />
           <Button>Szukaj</Button>

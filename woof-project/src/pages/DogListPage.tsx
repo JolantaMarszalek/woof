@@ -1,9 +1,7 @@
+import List from "../components/List/List.component";
+
 function DogListPage() {
-  return (
-    <>
-      <h1>Lista ras</h1>
-    </>
-  );
+  return <List />;
 }
 
 export default DogListPage;

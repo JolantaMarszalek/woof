@@ -5,12 +5,13 @@ export const SearchContainer = styled.div`
   height: auto;
 `;
 
-export const TitleContainer = styled.div`
+export const SearchTitleContainer = styled.div`
   display: flex;
   /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
   color: hsl(0, 0%, 55%);
+  margin: 20px;
 `;
 
 export const SearchBarContainer = styled.div`
@@ -33,8 +34,8 @@ export const PhotoContainer = styled.div`
 
   img {
     border-radius: 50%;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
   }
 
   @media (max-height: 700px) {
