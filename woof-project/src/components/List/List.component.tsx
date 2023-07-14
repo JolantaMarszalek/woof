@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   ListContainer,
   ListDogContainer,
@@ -37,7 +38,11 @@ function List() {
       <ListDogContainer>
         <ul>
           {dogs.map((dog, index) => (
-            <div key={index}>{dog}</div>
+            <div key={index}>
+              <Link to={`dog-page/${dog}`}>
+                <h4>{dog}</h4>
+              </Link>
+            </div>
           ))}
         </ul>
       </ListDogContainer>
