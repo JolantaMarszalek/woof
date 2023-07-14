@@ -34,8 +34,8 @@ export const PhotoContainer = styled.div`
 
   img {
     border-radius: 50%;
-    width: 50%;
-    height: 50%;
+    width: 300px;
+    height: 300px;
   }
 
   @media (max-height: 700px) {

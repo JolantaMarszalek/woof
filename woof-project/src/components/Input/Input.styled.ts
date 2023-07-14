@@ -10,6 +10,7 @@ export const InputField = styled.input`
   box-shadow: border-box;
   border-radius: 5px;
   background-color: hsl(240, 22%, 10%);
+  color: hsl(0, 0%, 55%);
 `;
 export const InputLabel = styled.label`
   position: relative;

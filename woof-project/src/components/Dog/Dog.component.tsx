@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { DogContainer } from "./Dog.styled";
+import {
+  DogContainer,
+  PhotoDogContainer,
+  TextDogContainer,
+  TitleDogContainer,
+} from "./Dog.styled";
 
 interface DogProps {
   dog: string;
@@ -33,10 +38,11 @@ function Dog({ dog }: DogProps) {
   }, [dog]);
   return (
     <DogContainer>
-      {dogImage && <img src={dogImage} alt="Dog" />}
-      <div></div>
-      <h2>{dog}</h2>
-      <p>
+      <PhotoDogContainer>
+        {dogImage && <img src={dogImage} alt="Dog" />}
+      </PhotoDogContainer>
+      <TitleDogContainer>{dog}</TitleDogContainer>
+      <TextDogContainer>
         Ten pies to wierny i przyjacielski czworonóg, który świetnie czuje się w
         roli rodzinnego towarzysza. Dobrze dogaduje się z dziećmi, uwielbia
         pieszczoty i wspólne zabawy. Jest łatwy w prowadzeniu, choć bywa uparty.
@@ -45,9 +51,8 @@ function Dog({ dog }: DogProps) {
         delikatna. lśniąca, umaszczenie płowe, pręgowane lub łaciate. Charakter
         czujny, śmiały, oddany, odważny, łagodny, czasem uparty. W zależności od
         dnia pokazuje różne oblicza swojej natury.
-      </p>
+      </TextDogContainer>
     </DogContainer>
   );
 }
-
 export default Dog;
