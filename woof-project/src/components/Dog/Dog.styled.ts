@@ -21,12 +21,12 @@ export const PhotoDogContainer = styled.div`
     height: 300px;
   }
 
-  @media (max-height: 740px) {
+  @media (max-height: 600px) {
     margin-top: 10px;
     height: 10vh;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 470px) {
     margin: 5rem;
     img {
       width: 200px;
@@ -34,7 +34,7 @@ export const PhotoDogContainer = styled.div`
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 375px) {
     margin: 2rem;
     img {
       width: 150px;
@@ -45,8 +45,6 @@ export const PhotoDogContainer = styled.div`
 
 export const TitleDogContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  justify-content: space-evenly;
   align-items: center;
   margin: 30px;
   text-transform: capitalize;
@@ -54,14 +52,13 @@ export const TitleDogContainer = styled.div`
   justify-content: center;
   gap: 10px;
 
-  @media (max-height: 740px) {
+  @media (max-height: 600px) {
     margin-top: 10px;
     height: 10vh;
   }
 `;
 
 export const TextDogContainer = styled.div`
-  /* position: static; */
   margin-left: 20%;
   margin-right: 20%;
   display: flex;
@@ -74,7 +71,7 @@ export const TextDogContainer = styled.div`
   font-size: 15px;
   line-height: 1.5;
 
-  @media (max-height: 740px) {
+  @media (max-height: 600px) {
     margin-top: 10px;
     height: 10vh;
   }

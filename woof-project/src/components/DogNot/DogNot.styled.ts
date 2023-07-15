@@ -1,13 +1,8 @@
 import styled from "styled-components";
 
 export const DogNotContainer = styled.div`
-  display: column;
-  height: auto;
-
-  font-size: 20px;
-
-  padding: 4rem;
-  transition: 0.2s linear;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const PhotoDogNotContainer = styled.div`
@@ -26,12 +21,12 @@ export const PhotoDogNotContainer = styled.div`
     height: 300px;
   }
 
-  @media (max-height: 740px) {
+  @media (max-height: 600px) {
     margin-top: 10px;
     height: 10vh;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 470px) {
     margin: 5rem;
     img {
       width: 200px;
@@ -39,7 +34,7 @@ export const PhotoDogNotContainer = styled.div`
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 375px) {
     margin: 2rem;
     img {
       width: 150px;
@@ -50,13 +45,14 @@ export const PhotoDogNotContainer = styled.div`
 
 export const TitleDogNotContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 30px;
   text-align: center;
+  font-size: 20px;
+  height: auto;
 
-  @media (max-height: 740px) {
+  @media (max-height: 600px) {
     margin-top: 10px;
     height: 10vh;
   }

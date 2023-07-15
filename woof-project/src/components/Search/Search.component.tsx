@@ -87,7 +87,7 @@ function Search() {
           {isDogFound === true && <Dog dog={searchDog} />}{" "}
           {isDogFound === false && <DogNot />}{" "}
           {isDogFound === null && (
-            <p>Tu wyświetlimy informacje o interesującym Cię pupilu</p>
+            <p>Wyświetlimy informacje o interesującym Cię pupilu.</p>
           )}{" "}
         </TextContainer>
       </SearchContainer>
