@@ -8,13 +8,16 @@ import { useEffect, useState } from "react";
 
 interface DogData {
   message: {
-    [breed: string]: string[];
+    [breed: string]: string[] | string;
   };
   status: string;
 }
 
 function List() {
   const [dogs, setDogs] = useState<string[]>([]);
+  const [dogBreeds, setDogBreeds] = useState<
+    { breed: string; subBreeds: string[] }[]
+  >([]);
 
   useEffect(() => {
     const fetchDogs = async () => {
@@ -23,6 +26,15 @@ function List() {
         const data = (await response.json()) as DogData;
         const breeds: string[] = Object.keys(data.message);
         setDogs(breeds);
+
+        const breedsWithSubBreeds = breeds.filter((breed) =>
+          Array.isArray(data.message[breed])
+        );
+        const dogBreedsData = breedsWithSubBreeds.map((breed) => ({
+          breed,
+          subBreeds: data.message[breed] as string[],
+        }));
+        setDogBreeds(dogBreedsData);
       } catch (error) {
         console.error("Error fetching dogs:", error);
       }
@@ -37,11 +49,22 @@ function List() {
       <ListTitleContainer>Lista ras</ListTitleContainer>
       <ListDogContainer>
         <ul>
-          {dogs.map((dog, index) => (
+          {dogBreeds.map((dogData, index) => (
             <div key={index}>
-              <Link to={`dog-page/${dog}`}>
-                <h4>{dog}</h4>
+              <Link to={`dog-page/${dogData.breed}`}>
+                <h4>{dogData.breed}</h4>
               </Link>
+              {dogData.subBreeds.length > 0 && (
+                <ul>
+                  {dogData.subBreeds.map((subBreed, subIndex) => (
+                    <div key={subIndex}>
+                      <Link to={`dog-page/${dogData.breed}/${subBreed}`}>
+                        <p>{subBreed}</p>
+                      </Link>
+                    </div>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </ul>

@@ -8,22 +8,27 @@ import {
 
 interface DogProps {
   dog: string;
+  subBreed?: string;
 }
 
 interface DogData {
   message: string | string[];
 }
 
-function Dog({ dog }: DogProps) {
+function Dog({ dog, subBreed }: DogProps) {
   const [dogImage, setDogImage] = useState<string | null>(null);
   const [dogExists, setDogExists] = useState(true);
 
   useEffect(() => {
     const fetchDogImage = async () => {
       try {
-        const response = await fetch(
-          `https://dog.ceo/api/breed/${dog}/images/random`
-        );
+        let apiUrl = `https://dog.ceo/api/breed/${dog}/images/random`;
+        if (subBreed) {
+          apiUrl = `https://dog.ceo/api/breed/${dog}/${subBreed}/images/random`;
+        }
+
+        const response = await fetch(apiUrl);
+
         const data = (await response.json()) as DogData;
         const fetchedDogImage = Array.isArray(data.message)
           ? data.message[0]
@@ -39,7 +44,7 @@ function Dog({ dog }: DogProps) {
       console.error("Error in fetchDogImage:", error);
       setDogExists(false);
     });
-  }, [dog]);
+  }, [dog, subBreed]);
 
   if (!dogExists) {
     return (
@@ -54,7 +59,10 @@ function Dog({ dog }: DogProps) {
       <PhotoDogContainer>
         {dogImage && <img src={dogImage} alt="Dog" />}
       </PhotoDogContainer>
-      <TitleDogContainer>{dog}</TitleDogContainer>
+      <TitleDogContainer>
+        {dog}
+        {subBreed && <h3>{subBreed}</h3>}
+      </TitleDogContainer>
       <TextDogContainer>
         Ten pies to wierny i przyjacielski czworonóg, który świetnie czuje się w
         roli rodzinnego towarzysza. Dobrze dogaduje się z dziećmi, uwielbia

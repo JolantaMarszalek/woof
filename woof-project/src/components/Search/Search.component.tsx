@@ -8,7 +8,7 @@ import {
   SearchTitleContainer,
   TextContainer,
 } from "./Search.styled";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Dog from "../Dog/Dog.component";
 import DogNot from "../DogNot/DogNot.component";
 // import { useDogContext } from "../../Context/DogContext";
