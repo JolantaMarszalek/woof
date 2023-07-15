@@ -33,6 +33,23 @@ export const FooterStyled = styled.footer`
   }
 `;
 
+export const IconContainer = styled.div<{ active: boolean }>`
+  img {
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.2s ease;
+
+    ${({ active }) => active && "background-color: hsl(0, 0%, 55%);"}
+
+    &:hover {
+      background-color: hsl(0, 0%, 55%);
+    }
+
+    border-radius: 10px;
+    overflow: hidden;
+  }
+`;
+
 export const Links = styled.div`
   display: flex;
   gap: 100px;

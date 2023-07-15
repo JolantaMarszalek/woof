@@ -1,16 +1,36 @@
 import { Link } from "react-router-dom";
-import { FooterStyled, Links } from "./Footer.styled";
+import { FooterStyled, IconContainer, Links } from "./Footer.styled";
+import { useState } from "react";
 
 export const Footer = () => {
+  const [isActive, setIsActive] = useState<number | null>(null);
+  const handleIconClick = (index: number) => {
+    if (isActive === index) {
+      setIsActive(null);
+    } else {
+      setIsActive(index);
+    }
+  };
   return (
     <FooterStyled>
       <Links>
-        <Link to="/">
-          <img src="../../../public/dog.png" />
-        </Link>
-        <Link to="dog-search">
-          <img src="../../../public/search-magnifier-black-shape.png" />
-        </Link>
+        <IconContainer
+          active={isActive === 0}
+          onClick={() => handleIconClick(0)}>
+          <Link to="/">
+            <img src="../../../public/dog.png" alt="Ikona" />
+          </Link>
+        </IconContainer>
+        <IconContainer
+          active={isActive === 1}
+          onClick={() => handleIconClick(1)}>
+          <Link to="dog-search">
+            <img
+              src="../../../public/search-interface-symbol.png"
+              alt="Ikona"
+            />
+          </Link>
+        </IconContainer>
       </Links>
     </FooterStyled>
   );
