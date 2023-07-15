@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const InputField = styled.input`
   border: 2px solid hsl(0, 0%, 55%);
+  max-width: 100%;
   height: 35px;
-  width: 220px;
   outline: none;
   font-size: 16px;
   padding-left: 25px;
@@ -17,7 +17,8 @@ export const InputLabel = styled.label`
   display: flex;
   align-items: center;
 
-  @media (max-width: 1024px) {
-    height: 35px;
+  @media (max-width: 740px) {
+    margin-top: 10px;
+    height: 10vh;
   }
 `;

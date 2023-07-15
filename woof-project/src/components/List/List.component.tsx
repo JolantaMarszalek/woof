@@ -14,6 +14,7 @@ interface DogData {
 }
 
 function List() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dogs, setDogs] = useState<string[]>([]);
   const [dogBreeds, setDogBreeds] = useState<
     { breed: string; subBreeds: string[] }[]

@@ -68,7 +68,7 @@ function Search() {
         <SearchTitleContainer>Szukaj a znajdziesz ;)</SearchTitleContainer>
         <SearchBarContainer>
           <Input
-            placeholder="np. Owczarek niemiecki"
+            placeholder="np. Germanshepherd"
             value={searchDog}
             onChange={handleInputChange}
           />
@@ -84,7 +84,6 @@ function Search() {
           <img src="../../../public/pexels-pixabay-236622.jpg" alt="Dog" />
         </PhotoContainer>
         <TextContainer>
-          Tu wyświetlimy informacje o interesującym Cię pupilu
           {isDogFound === true && <Dog dog={searchDog} />}{" "}
           {isDogFound === false && <DogNot />}{" "}
           {isDogFound === null && (

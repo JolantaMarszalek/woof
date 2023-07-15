@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const DogContainer = styled.div`
   display: column;
   height: auto;
-  color: hsl(0, 0%, 55%);
 `;
 
 export const PhotoDogContainer = styled.div`
@@ -26,6 +25,22 @@ export const PhotoDogContainer = styled.div`
     margin-top: 10px;
     height: 10vh;
   }
+
+  @media (max-width: 768px) {
+    margin: 5rem;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 2rem;
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
 `;
 
 export const TitleDogContainer = styled.div`
@@ -33,10 +48,14 @@ export const TitleDogContainer = styled.div`
   /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
-  color: hsl(0, 0%, 55%);
   margin: 20px;
   text-transform: capitalize;
   font-weight: bold;
+
+  @media (max-height: 740px) {
+    margin-top: 10px;
+    height: 10vh;
+  }
 `;
 
 export const TextDogContainer = styled.div`
@@ -50,16 +69,9 @@ export const TextDogContainer = styled.div`
   width: auto;
   height: 15vh;
   margin-top: 15px;
-  color: hsl(0, 0%, 55%);
 
   @media (max-height: 740px) {
     margin-top: 10px;
     height: 10vh;
-    h3 {
-      font-size: 0.8rem;
-    }
-    h4 {
-      font-size: 0.7rem;
-    }
   }
 `;
