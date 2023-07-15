@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const DogContainer = styled.div`
-  display: column;
-  height: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const PhotoDogContainer = styled.div`
@@ -11,7 +11,7 @@ export const PhotoDogContainer = styled.div`
   height: auto;
   width: auto;
   border-radius: 50%;
-  margin: 10rem;
+  margin: 10px;
   text-transform: capitalize;
   transition: 0.2s linear;
 
@@ -48,9 +48,11 @@ export const TitleDogContainer = styled.div`
   /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
-  margin: 20px;
+  margin: 30px;
   text-transform: capitalize;
   font-weight: bold;
+  justify-content: center;
+  gap: 10px;
 
   @media (max-height: 740px) {
     margin-top: 10px;
@@ -59,16 +61,16 @@ export const TitleDogContainer = styled.div`
 `;
 
 export const TextDogContainer = styled.div`
-  position: static;
+  /* position: static; */
+  margin-left: 20%;
+  margin-right: 20%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
   font-size: 1rem;
   width: auto;
-  height: 15vh;
-  margin-top: 15px;
+  height: auto;
+  margin-top: 5px;
   font-size: 15px;
   line-height: 1.5;
 

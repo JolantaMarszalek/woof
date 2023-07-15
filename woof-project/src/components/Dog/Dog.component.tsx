@@ -60,8 +60,8 @@ function Dog({ dog, subBreed }: DogProps) {
         {dogImage && <img src={dogImage} alt="Dog" />}
       </PhotoDogContainer>
       <TitleDogContainer>
-        {dog}
-        {subBreed && <h3>{subBreed}</h3>}
+        <div>{dog}</div>
+        {subBreed && <div>{subBreed}</div>}
       </TitleDogContainer>
       <TextDogContainer>
         Ten pies to wierny i przyjacielski czworonóg, który świetnie czuje się w
