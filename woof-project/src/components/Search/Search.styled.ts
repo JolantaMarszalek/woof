@@ -17,7 +17,7 @@ export const SearchTitleContainer = styled.div`
   align-items: center;
 
   margin: 20px;
-  font-size: 35px;
+  font-size: 20px;
 
   @media (max-height: 740px) {
     margin-top: 10px;

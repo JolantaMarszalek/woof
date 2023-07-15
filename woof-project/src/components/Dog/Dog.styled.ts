@@ -69,6 +69,8 @@ export const TextDogContainer = styled.div`
   width: auto;
   height: 15vh;
   margin-top: 15px;
+  font-size: 15px;
+  line-height: 1.5;
 
   @media (max-height: 740px) {
     margin-top: 10px;

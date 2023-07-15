@@ -1,4 +1,4 @@
-import DogNot from "../components/DogNot/DogNot.component";
+import { DogNot } from "../components/DogNot/DogNot.component";
 
 function DogNotFoundPage() {
   return (

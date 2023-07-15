@@ -5,7 +5,7 @@ function BreedDogPage() {
   const { dog, subBreed } = useParams<{ dog?: string; subBreed?: string }>();
 
   if (!dog || !subBreed) {
-    return <div>Brak wybranego psa.</div>;
+    return <div>Nie ma takiego psa w bazie danych.</div>;
   }
 
   return (

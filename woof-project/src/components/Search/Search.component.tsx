@@ -10,7 +10,7 @@ import {
 } from "./Search.styled";
 import { useNavigate } from "react-router-dom";
 import Dog from "../Dog/Dog.component";
-import DogNot from "../DogNot/DogNot.component";
+import { DogNot } from "../DogNot/DogNot.component";
 // import { useDogContext } from "../../Context/DogContext";
 
 interface ApiResponse {

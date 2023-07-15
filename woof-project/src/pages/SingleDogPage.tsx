@@ -5,7 +5,7 @@ function SingleDogPage() {
   const { dog } = useParams<{ dog: string }>();
 
   if (!dog) {
-    return <div>No dog selected.</div>;
+    return <div>Nie ma takiego psa w bazie danych.</div>;
   }
 
   return (
