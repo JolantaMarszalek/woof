@@ -8,61 +8,60 @@ import {
   SearchTitleContainer,
   TextContainer,
 } from "./Search.styled";
-import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Dog from "../Dog/Dog.component";
+import DogNot from "../DogNot/DogNot.component";
+// import { useDogContext } from "../../Context/DogContext";
 
 interface ApiResponse {
-  breeds: string[];
+  message: {
+    [breed: string]: string[];
+  };
 }
 
 function Search() {
   const [searchDog, setSearchDog] = useState("");
-  const [dogExists, setDogExists] = useState(true);
+  const navigate = useNavigate();
+  // const [dogExists, setDogExists] = useState(true);
+  // const { dogExists, setDogExists } = useDogContext();
   const [dogList, setDogList] = useState<string[]>([]);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [isDogFound, setIsDogFound] = useState<boolean | null>(null);
 
   useEffect(() => {
     fetch("https://dog.ceo/api/breeds/list/all")
       .then((response) => response.json())
       .then((data: ApiResponse) => {
-        setDogList(data.breeds);
+        const breeds = Object.keys(data.message);
+        // const breeds = data.breeds;
+        // setDogExists(true);
+        setDogList(breeds);
       })
       .catch((error) => {
         console.error("Error fetching dog breeds:", error);
       });
   }, []);
 
-  // const navigate = useNavigate();
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchDog(event.target.value);
-    setDogExists(true);
+    setIsDogFound(null);
   };
 
   const handleSearch = () => {
-    if (!dogList.includes(searchDog.toLowerCase())) {
-      setDogExists(false);
-    } else {
-      setDogExists(true);
-      // navigate(`/dog-page/${searchDog}`);
+    console.log("Button clicked!");
+    console.log("SearchDog:", searchDog);
+    console.log("DogList:", dogList);
+    if (searchDog.trim() !== "") {
+      const dogExists = dogList.includes(searchDog.toLowerCase());
+      setIsDogFound(dogExists);
+
+      if (dogExists) {
+        navigate(`/dog-page/${searchDog}`);
+      } else {
+        navigate(`/dog-not`);
+      }
     }
   };
 
-  // const renderButton = () => {
-  //   if (dogExists) {
-  //     return (
-  //       <Link to={`/dog-page/${searchDog}`}>
-  //         <Button onClick={handleSearch}>Szukaj</Button>
-  //       </Link>
-  //     );
-  //   } else {
-  //     return (
-  //       <Button disabled={true} onClick={handleSearch}>
-  //         Szukaj
-  //       </Button>
-  //     );
-  //   }
-  // };
   return (
     <>
       <SearchContainer>
@@ -74,32 +73,23 @@ function Search() {
             onChange={handleInputChange}
           />
 
-          {dogExists ? (
-            <Link to={`/dog-page/${searchDog}`}>
-              <Button onClick={handleSearch}>Szukaj</Button>
-            </Link>
-          ) : (
-            <Button disabled={true} onClick={handleSearch}>
-              Szukaj
-            </Button>
-          )}
+          {/* <Link to={`/dog-page/${searchDog}`}> */}
+          <Button disabled={searchDog === ""} onClick={handleSearch}>
+            Szukaj
+          </Button>
+          {/* </Link> */}
         </SearchBarContainer>
-        {suggestions.length > 0 && (
-          <ul>
-            {suggestions.map((breed) => (
-              <li key={breed}>{breed}</li>
-            ))}
-          </ul>
-        )}
+
         <PhotoContainer>
           <img src="../../../public/pexels-pixabay-236622.jpg" alt="Dog" />
         </PhotoContainer>
         <TextContainer>
-          {dogExists ? (
+          Tu wyświetlimy informacje o interesującym Cię pupilu
+          {isDogFound === true && <Dog dog={searchDog} />}{" "}
+          {isDogFound === false && <DogNot />}{" "}
+          {isDogFound === null && (
             <p>Tu wyświetlimy informacje o interesującym Cię pupilu</p>
-          ) : (
-            <p>Nie ma takiego psa w bazie danych.</p>
-          )}
+          )}{" "}
         </TextContainer>
       </SearchContainer>
     </>
