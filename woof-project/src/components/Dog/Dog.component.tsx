@@ -17,7 +17,6 @@ interface DogData {
 
 function Dog({ dog, subBreed }: DogProps) {
   const [dogImage, setDogImage] = useState<string | null>(null);
-  const [dogExists, setDogExists] = useState(true);
 
   useEffect(() => {
     const fetchDogImage = async () => {
@@ -28,31 +27,21 @@ function Dog({ dog, subBreed }: DogProps) {
         }
 
         const response = await fetch(apiUrl);
-
         const data = (await response.json()) as DogData;
         const fetchedDogImage = Array.isArray(data.message)
           ? data.message[0]
           : data.message;
         setDogImage(fetchedDogImage);
-        setDogExists(true);
       } catch (error) {
         console.error("Error fetching dog image:", error);
-        setDogExists(false);
+        setDogImage(null);
       }
     };
     fetchDogImage().catch((error) => {
       console.error("Error in fetchDogImage:", error);
-      setDogExists(false);
+      setDogImage(null);
     });
   }, [dog, subBreed]);
-
-  if (!dogExists) {
-    return (
-      <DogContainer>
-        <TitleDogContainer>Brak takiego psa w bazie danych.</TitleDogContainer>
-      </DogContainer>
-    );
-  }
 
   return (
     <DogContainer>

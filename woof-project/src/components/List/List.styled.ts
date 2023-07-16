@@ -7,7 +7,6 @@ export const ListContainer = styled.div`
 
 export const ListTitleContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
   color: hsl(0, 0%, 55%);
@@ -19,7 +18,6 @@ export const ListTitleContainer = styled.div`
 
 export const ListDogContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
   color: hsl(0, 0%, 55%);
