@@ -20,6 +20,9 @@
     "sort-by": "^1.2.0",
     "styled-components": "^6.0.4"
   },
+  "overrides": {
+    "object-path": "^0.11.8"
+  },
   "devDependencies": {
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.7",
